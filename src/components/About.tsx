@@ -1,7 +1,16 @@
 
+import { AspectRatio } from "@/components/ui/aspect-ratio";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+
 const About = () => {
   return (
-    <section id="about" className="bg-white">
+    <section id="about" className="bg-white py-16 md:py-24">
       <div className="container mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="order-2 lg:order-1">
@@ -30,21 +39,60 @@ const About = () => {
             </div>
           </div>
           
-          <div className="relative order-1 lg:order-2 h-[400px] md:h-[500px]">
-            <div className="absolute top-0 right-0 w-5/6 h-5/6 rounded-lg overflow-hidden shadow-xl">
-              <img 
-                src="https://images.unsplash.com/photo-1629909615183-141b5aadc078?auto=format&fit=crop&q=80" 
-                alt="Modern dental clinic" 
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <div className="absolute bottom-0 left-0 w-2/3 h-2/3 bg-confidental-blue-light rounded-lg overflow-hidden shadow-xl">
-              <img 
-                src="https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&q=80" 
-                alt="Dental treatment" 
-                className="w-full h-full object-cover mix-blend-overlay"
-              />
-            </div>
+          <div className="relative order-1 lg:order-2">
+            <Carousel className="w-full max-w-lg mx-auto">
+              <CarouselContent>
+                <CarouselItem>
+                  <div className="overflow-hidden rounded-xl shadow-xl">
+                    <AspectRatio ratio={4/3} className="bg-confidental-blue/10">
+                      <div className="absolute inset-0 bg-gradient-to-tr from-confidental-blue/20 to-transparent z-10"></div>
+                      <img 
+                        src="https://images.unsplash.com/photo-1629909615183-141b5aadc078?auto=format&fit=crop&q=80" 
+                        alt="Modern dental clinic" 
+                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                      />
+                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-confidental-blue-dark/70 to-transparent p-6 text-white z-20">
+                        <h3 className="font-bold text-lg">State-of-the-art Facilities</h3>
+                      </div>
+                    </AspectRatio>
+                  </div>
+                </CarouselItem>
+                <CarouselItem>
+                  <div className="overflow-hidden rounded-xl shadow-xl">
+                    <AspectRatio ratio={4/3} className="bg-confidental-blue/10">
+                      <div className="absolute inset-0 bg-gradient-to-tr from-confidental-blue/20 to-transparent z-10"></div>
+                      <img 
+                        src="https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&q=80" 
+                        alt="Dental treatment" 
+                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                      />
+                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-confidental-blue-dark/70 to-transparent p-6 text-white z-20">
+                        <h3 className="font-bold text-lg">Personalized Care</h3>
+                      </div>
+                    </AspectRatio>
+                  </div>
+                </CarouselItem>
+                <CarouselItem>
+                  <div className="overflow-hidden rounded-xl shadow-xl">
+                    <AspectRatio ratio={4/3} className="bg-confidental-blue/10">
+                      <div className="absolute inset-0 bg-gradient-to-tr from-confidental-blue/20 to-transparent z-10"></div>
+                      <img 
+                        src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&q=80" 
+                        alt="Dental equipment" 
+                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                      />
+                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-confidental-blue-dark/70 to-transparent p-6 text-white z-20">
+                        <h3 className="font-bold text-lg">Advanced Technology</h3>
+                      </div>
+                    </AspectRatio>
+                  </div>
+                </CarouselItem>
+              </CarouselContent>
+              <div className="flex justify-center mt-4">
+                <CarouselPrevious className="relative -left-0 top-0 translate-y-0 h-9 w-9" />
+                <CarouselNext className="relative -right-0 top-0 translate-y-0 h-9 w-9" />
+              </div>
+            </Carousel>
           </div>
         </div>
 
